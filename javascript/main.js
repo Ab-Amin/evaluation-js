@@ -15,15 +15,14 @@ let nbrOfBets = document.querySelector('.nbr-bet')
 let inputBet = document.querySelector('#input-bet')
 let totalCote = document.querySelector('.total-cote')
 let totalGain = document.querySelector('.total-gain')
-let xdelete = document.querySelector('.fa-xmark')
+let xdelete = document.querySelectorAll('.fa-xmark')
 
 
-
+// liste(s) :
 let cotes = []
 
 
 // =-=-=-=-=| fonctions |=-=-=-=-=
-
 fetch(`datas.json`)
 .then(response => response.json())
 .then(data => {
@@ -78,31 +77,27 @@ function betsTab() {
     console.log(typeof(cotes[i].odds));
   }
 
-  let sumCotes = 1;
+  // 1 sinon = 0 tout le temps (*0)
+  let multiCotes = 1;
   for (let i = 0; i < cotes.length; i++) {
     let odds = cotes[i].odds
-    console.log(odds);
-    sumCotes = sumCotes * odds;
+    // console.log(odds);
+    multiCotes = multiCotes * odds;
   }
-  console.log(sumCotes);
-
-  // let inputBet = document.querySelector('.input-bet')
-  // let totalCote = document.querySelector('.total-cote')
-  // let totalGain = document.querySelector('.total-gain')
-
-  nbrOfBets.innerHTML = cotes.length
-  totalCote.innerHTML = sumCotes.toFixed(2)
-  totalGain.innerHTML = 0.00
-
-  inputBet.addEventListener('change', () => {
+  // console.log(multiCotes);
   
-    let potentielGain = inputBet.value * sumCotes
+  nbrOfBets.innerHTML = cotes.length
+  // arondi à 2 chiffre aprés virgule
+  totalCote.innerHTML = multiCotes.toFixed(2)
+
+  // trouve pas comment mettre à jour sans cliqué sur 'enter'
+  // essayé avec keypress mais prend que les 2 premier chiffre, ex 1234€ * cote de 1.00 => 123€
+  inputBet.addEventListener('change', () => {
+    let potentielGain = inputBet.value * multiCotes
     totalGain.innerHTML = potentielGain.toFixed(2)
   })
 }
 betsTab()
-
-
 
 
 // =-=-=-=-=| eventListeners |=-=-=-=-=
@@ -122,11 +117,10 @@ wrappersCoteChoice.forEach(wrapperCoteChoice => {
         e.target.classList.add('btn-bet')
       }
 
-
       // si on change de choix de cote (ou juste cliqué sur un nouveau) --> add la cote + nom de team gagnant dans liste
       if (e.target.parentElement.hasAttribute('data-matchid')){
 
-        // check avec .findIndex si matchid existe déja dans la liste
+        // check avec .findIndex si cotes.matchid existe déja dans la liste (si est == à data-matchid du parent.target)
         let existInList = cotes.findIndex(item => item.match_id === e.target.parentElement.getAttribute('data-matchid'));
 
         // si on enleve un pari (si ne contien pas la blasse btn-bet) --> supprime l'objet en entier de la liste   
@@ -151,11 +145,33 @@ wrappersCoteChoice.forEach(wrapperCoteChoice => {
         }
       }
 
-      // relance betsTab() pour mettre a jour en fonciton des modifs fait sur les cotes choisis + liste
+      // relance betsTab() pour mettre à jour en fonciton des modifs fait sur les cotes choisis
       betsTab()
       console.log(cotes);
     }
   })
+})
+
+
+// delete mini-windoww bets 
+betRecap.addEventListener('click', e => {
+  // si target est un <i>
+  if (e.target.tagName === 'I') {
+    // prend le numero de l'attribut du .ticket
+    let xMatchid = e.target.closest('.ticket').getAttribute('data-matchid')
+    // console.log(xMatchid);
+    
+    // enlever cet element de la liste 'cotes', (-1, car les match_id du json commencent par 1)
+    cotes.splice((xMatchid - 1), 1)
+    // supprime totalement la ligne du mini-window
+    e.target.parentElement.parentElement.parentElement.remove()
+   
+
+    // relance betsTab() pour mettre à jour en fonciton de ce que j'ai supprimé
+    betsTab()
+    console.log(cotes);
+  }
+
 })
 
 
