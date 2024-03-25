@@ -1,0 +1,230 @@
+/*=-=-=-=| general |=-=-=-=*/
+a{
+  text-decoration: none;
+}
+
+.hidden{
+  display: none;
+}
+
+
+
+/*=-=-=-=| main |=-=-=-=*/
+body{
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+  aside{ 
+    background: linear-gradient(170deg, rgba(62,13,148,0.9661399548532731) 47%, rgba(32,40,170,1) 65%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    div{
+      margin: 20px auto;
+    }
+    .light-dark{
+      i{
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+        &:hover{
+          scale: 1.1;
+          transition: all .2s ease-in-out;
+        }
+      }
+    }
+  }
+
+  main{
+    position: absolute;
+    top: 0;
+    left: 20%;
+    width: 80%;
+    height: 100vh;
+
+    header{
+      nav{
+        background-color: rgba(107, 56, 197, 0.651);
+        padding: 20px;
+        border-end-end-radius: 35px;
+        a{
+          color: rgb(0, 0, 0);
+          padding: 10px 15px;
+          font-weight: bold;
+          &:hover{
+            color: rgb(255, 255, 255)
+          }
+        }
+        a:first-of-type{
+          color: white;
+        }
+      }
+    }
+
+    .nav-II{
+      padding: 15px 0;
+      width: fit-content;
+      background-color: rgba(143, 92, 233, 0.651);
+      border-end-end-radius: 20px;
+
+      a{
+        padding: 15px;
+        // border-end-end-radius: 20px;
+        border: 1px solid black;
+        border-top: none;
+        &:hover{
+          background-color: rgba(118, 62, 214, 0.651);
+        }
+      }
+      a:first-child{
+        border-left: none;
+      }
+      a:last-child{
+        border-end-end-radius: 20px;
+        border-left: none;
+      }
+    }
+    .bets{
+      display: flex;
+      flex-direction: column;
+      margin: 20px 0 0 20px;
+      padding: 15px;
+      width: 70%;
+      max-width: 650px;
+
+      > div{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .vs{
+        padding: 10px;
+        border: 1px solid black;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        transition: all .2s ease-in-out;
+        &:hover{
+          background-color: rgba(160, 119, 230, 0.5);
+          transition: all .2s ease-in-out;
+        }
+
+        .team{
+          font-size: 15px;
+        }
+        .cote-buttons{
+          button{
+            padding: 5px 8px;
+            border: 1px solid;
+            border-radius: 3px;
+            transition: all .2s ease-in-out;
+            &:hover{
+              background-color: rgba(216, 198, 238, 0.849);
+              transition: all .2s ease-in-out;
+            }
+          }
+          button:nth-child(2){
+            margin: 0 3px;
+          }
+          .btn-bet{
+            background-color: rgba(162, 96, 248, 0.849);
+            border: 1px solid rgb(168, 17, 143);
+            transition: all .2s ease-in-out;
+            &:hover{
+              background-color: rgba(162, 96, 248, 0.849);
+              transition: all .2s ease-in-out;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .bet-window{
+    position: absolute;
+    bottom: 0;
+    right: 1rem;
+    width: 290px;
+
+    .onglet{
+      background: linear-gradient(170deg, rgba(62,13,148,0.9661399548532731) 47%, rgba(32,40,170,1) 65%);
+      padding: 5px 0;
+      border-radius: 15px 15px 0 0;
+      text-align: center;
+      color: white;
+      &:hover{
+        cursor: pointer;
+      }
+    }
+    .js-bets{
+      border-left: 2px solid rgba(62,13,148,0.9661399548532731);
+      border-right: 2px solid rgba(32,40,170,1);
+
+      .bet-window--recap{
+        max-height: 220px;
+        overflow-y: scroll;
+        scrollbar-width: thin;
+        scrollbar-color: rgb(62,13,148,);
+
+        .ticket{
+          border-bottom: 1px solid black;
+          padding: 8px 20px;
+          background-color: rgb(250, 250, 250);
+
+          > div{
+            strong{
+              margin-bottom: 5px;
+            }
+            >div{
+              span{
+                margin-right: 6px;
+              }
+              i{
+                scale: 0.8;
+                transition: all .2s ease-in-out;
+                &:hover{
+                  scale: 1;
+                  transition: all .2s ease-in-out;
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+          div:first-of-type{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+          }
+        }
+      }
+    }
+    .bet-window--result{
+      background-color: rgb(231, 231, 231);
+      padding: 20px;
+      text-align: right;
+
+      > div:not(div:last-of-type){
+       margin-bottom: 8px;
+      }
+      > div:first-of-type{
+
+        input{
+          width: 50px;
+        }
+      }
+    }
+  }
+
+
+}
+
+
+
+
+
+

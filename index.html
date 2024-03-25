@@ -3,25 +3,138 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- links -->
+  <script src="javascript/main.js" defer></script>
   <script src="https://kit.fontawesome.com/99fa1db12f.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="Styles/style.min.css">
 
-  <!-- Briefing evaluation : -->
-  <!-- https://docs.google.com/document/d/1C_vkViWT0V52IK14B3bCF9BjJz8002moUmsNcd6gAlU/edit -->
+  <!-- Briefing evaluation : https://docs.google.com/document/d/1C_vkViWT0V52IK14B3bCF9BjJz8002moUmsNcd6gAlU/edit -->
 
   <title> ... </title>
 </head>
 <body>
+
+  
+
+  <aside>
+    <div>
+      <img src="img/logo.webp" alt="1BetTDay logo">
+    </div>
+    <div class="light-dark">
+      <!--<i class="fa-solid fa-moon"></i> <i class="fa-solid fa-sun"></i> -->
+      <i class="fa-solid fa-moon"></i>
+    </div>
+  </aside>
+
   <main>
-    
+    <header>
+      <nav>
+        <a href="index.html">Football</a>
+        <a href="">Football</a>
+        <a href="">Football</a>
+        <a href="">Football</a>
+        <a href="">Football</a>
+      </nav>
+    </header>
+    <nav class="nav-II">
+      <a href="">Belgique</a><!--
+      --><a href="">Pro League</a>
+    </nav>
+
+    <div class="bets">
+      
+      <div class="vs">
+        <div class="team-names">
+          <span class="team team1">team 1</span> - <span class="team team2">team 2</span>
+        </div>
+
+        <div class="cote-buttons">
+            <button type="button" class="bet win">1.0</button>
+            <button type="button" class="bet null">1.0</button>
+            <button type="button" class="bet lose">1.0</button>
+        </div>
+      </div>
+
+    </div>
+
 
 
   </main>
 
+  <div class="bet-window">
+    <div class="onglet">
+      Your Bets (<span class="nbr-bet">0</span>)
+    </div>
 
-  <script src="https://kit.fontawesome.com/99fa1db12f.js" crossorigin="anonymous"></script>
-  <script src="javascript/main.js"></script>
+    <div class="js-bets">
+
+      <div class="bet-window--recap">
+  
+        <div class="ticket">
+          <div>
+            <strong>team 1</strong>
+            <div>
+              <span>1.0</span>
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+          </div>
+          <div><small>team 1 - team 2</small>
+            
+          </div>
+        </div>
+  
+        <div class="ticket">
+          <div>
+            <strong>team 1</strong>
+            <div>
+              <span>1.0</span>
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+          </div>
+          <div><small>team 1 - team 2</small></div>
+        </div>
+  
+        <div class="ticket">
+          <div>
+            <strong>team 1</strong>
+            <div>
+              <span>1.0</span>
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+          </div>
+          <div><small>team 1 - team 2</small></div>
+        </div>
+        
+        <div class="ticket">
+          <div>
+            <strong>team 1</strong>
+            <div>
+              <span>1.0</span>
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+          </div>
+          <div><small>team 1 - team </small>2</div>
+        </div>
+  
+  
+      </div>
+    
+      <div class="bet-window--result">
+        <div>
+          Votre mise
+          <input type="text" name="mise" id="input-bet">
+        </div>
+        <div>
+          Cote totale <strong class="total-cote">1.00</strong>
+        </div>
+        <div>
+          Gain potentiel <strong class="total-gain">0</strong><strong>€</strong>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </body>
 </html>

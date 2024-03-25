@@ -1,0 +1,84 @@
+{
+  "matchs": [
+    {
+      "hometeam": "Kvc westerlo",
+      "awayteam": "Standard de liège",
+      "date": "2024-02-16",
+      "time": "20:45",
+      "home_odd": 3.2,
+      "draw_odd": 3.4,
+      "away_odd": 2.2,
+      "match_id": 1
+    },
+    {
+      "hometeam": "Krc genk",
+      "awayteam": "RWDM",
+      "date": "2024-02-17",
+      "time": "16:00",
+      "home_odd": 1.6,
+      "draw_odd": 3.6,
+      "away_odd": 4.8,
+      "match_id": 2
+    },
+    {
+      "hometeam": "Oud-heverlee leuven",
+      "awayteam": "Charleroi sc",
+      "date": "2024-02-17",
+      "time": "18:15",
+      "home_odd": 2.3,
+      "draw_odd": 3.3,
+      "away_odd": 3.1,
+      "match_id": 3
+    },
+    {
+      "hometeam": "Royal antwerp fc",
+      "awayteam": "Krc mechelen",
+      "date": "2024-02-17",
+      "time": "20:45",
+      "home_odd": 1.9,
+      "draw_odd": 3.5,
+      "away_odd": 3.8,
+      "match_id": 4
+    },
+    {
+      "hometeam": "Cercle brugge",
+      "awayteam": "Club brugge kv",
+      "date": "2024-02-18",
+      "time": "13:30",
+      "home_odd": 4.2,
+      "draw_odd": 3.7,
+      "away_odd": 1.8,
+      "match_id": 5
+    },
+    {
+      "hometeam": "Kv cortrijk",
+      "awayteam": "R. Union saint-gilloise",
+      "date": "2024-02-18",
+      "time": "16:00",
+      "home_odd": 2.9,
+      "draw_odd": 3.4,
+      "away_odd": 2.3,
+      "match_id": 6
+    },
+    {
+      "hometeam": "Anderlecht",
+      "awayteam": "St. trond vv",
+      "date": "2024-02-18",
+      "time": "18:30",
+      "home_odd": 1.7,
+      "draw_odd": 3.7,
+      "away_odd": 4.3,
+      "match_id": 7
+    },
+    {
+      "hometeam": "Kas eupen",
+      "awayteam": "K.a.a. gent",
+      "date": "2024-02-18",
+      "time": "19:15",
+      "home_odd": 2.5,
+      "draw_odd": 3.4,
+      "away_odd": 2.7,
+      "match_id": 8
+    }
+  ]
+}
