@@ -1,0 +1,13 @@
+body{
+  margin: 0px;
+}
+
+/* Box-sizing on all elements*/
+*, *:after, *:before{
+  box-sizing: border-box;
+}
+
+/* ? */
+img{
+  max-width: 100%;
+}

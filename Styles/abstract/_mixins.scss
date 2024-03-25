@@ -1,0 +1,13 @@
+//• mixins example :
+
+// @mixin transition($duration : .5s, effect: ease-in-out){
+//   transition: $duration all $effect;
+// }
+
+//• In scss :
+// ..{
+//   color: black;
+//   @include transition(.3s);
+// }
+
+// la valeur par defaut = .5s mais peut changer avc (?s) aprés mixin. Pareil avec 'effect' ou autre mixin choisis
