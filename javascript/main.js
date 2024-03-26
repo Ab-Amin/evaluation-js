@@ -85,7 +85,7 @@ function betsTab() {
 
   // trouve pas comment mettre à jour sans cliqué sur 'enter'
   // essayé avec keypress mais ça prend que les 2 premier chiffre, ex 1234€ * cote de 1.00 => 123€
-  inputBet.addEventListener('change', () => {
+  inputBet.addEventListener('input', () => {
     let potentielGain = inputBet.value * multiCotes
     totalGain.innerHTML = potentielGain.toFixed(2)
   })

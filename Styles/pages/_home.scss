@@ -73,9 +73,6 @@ body{
     }
   }
 
-
-  
-
   main{
     position: absolute;
     top: 0;
@@ -149,6 +146,8 @@ body{
         border-radius: 5px;
         margin-bottom: 5px;
         transition: all .2s ease-in-out;
+
+        background-color: rgba(80, 80, 80, 0.062);
         &:hover{
           background-color: rgba(160, 119, 230, 0.5);
           transition: all .2s ease-in-out;
@@ -226,6 +225,8 @@ body{
                 margin-right: 6px;
               }
               i{
+                width: fit-content;
+                height: fit-content;
                 scale: 0.8;
                 transition: all .2s ease-in-out;
                 &:hover{
