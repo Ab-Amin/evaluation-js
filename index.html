@@ -5,25 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- links -->
+  <link href="cookieconsent-master/dist/cookieconsent.css" rel="stylesheet" />
+  <link rel="stylesheet" href="Styles/style.min.css">
+
   <script src="javascript/main.js" defer></script>
   <script src="https://kit.fontawesome.com/99fa1db12f.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="Styles/style.min.css">
 
   <!-- Briefing evaluation : https://docs.google.com/document/d/1C_vkViWT0V52IK14B3bCF9BjJz8002moUmsNcd6gAlU/edit -->
 
   <title> ... </title>
 </head>
 <body>
-
-  
-
   <aside>
     <div>
       <img src="img/logo.webp" alt="1BetTDay logo">
     </div>
-    <div class="light-dark">
-      <!--<i class="fa-solid fa-moon"></i> <i class="fa-solid fa-sun"></i> -->
-      <i class="fa-solid fa-sun"></i>
+    <div>
+      <div class="light-dark">
+        <!--<i class="fa-solid fa-moon"></i> <i class="fa-solid fa-sun"></i> -->
+        <i class="fa-solid fa-sun"></i>
+      </div>
+      <button class="cookiePlugin" data-cc="show-preferencesModal">
+        Manage cookie preferences
+      </button>
+  
     </div>
   </aside>
 
@@ -31,10 +36,10 @@
     <header>
       <nav>
         <a href="index.html">Football</a>
-        <a href="">Football</a>
-        <a href="">Football</a>
-        <a href="">Football</a>
-        <a href="">Football</a>
+        <a href="">fake_nav</a>
+        <a href="">fake_nav</a>
+        <a href="">fake_nav</a>
+        <a href="">fake_nav</a>
       </nav>
     </header>
     <nav class="nav-II">
@@ -43,7 +48,6 @@
     </nav>
 
     <div class="bets">
-      
       <!-- <div class="vs">
         <div class="team-names">
           <span class="team team1">team 1</span> - <span class="team team2">team 2</span>
@@ -55,24 +59,22 @@
             <button type="button" class="bet lose" data-choice>1.0</button>
         </div>
       </div> -->
-
     </div>
-
-
-
   </main>
 
   <div class="bet-window">
     <div class="onglet">
       Your Bets (<span class="nbr-bet">0</span>)
     </div>
-
-    <div class="js-bets">
-
+    <div class="js-bets hidden">
       <div class="bet-window--recap">
-
-        <div style="text-align: center;font-size: 14px;padding: 15px 0;">Make a bet to see summary here</div>
-
+        <div style="
+          text-align: center;
+          font-size: 14px;
+          padding: 15px 0;
+          ">
+          Make a bet to see your ticket(s) here
+        </div>
         <!-- <div class="ticket" data-matchid="">
           <div>
             <strong>team 1</strong>
@@ -84,10 +86,7 @@
           <div><small>team 1 - team 2</small>
           </div>
         </div> -->
-    
-  
       </div>
-    
       <div class="bet-window--result">
         <div>
           Votre mise
@@ -101,8 +100,201 @@
         </div>
       </div>
     </div>
-
   </div>
 
+  <div class="random-img">
+    <img src="img/bg1.webp" alt="">
+  </div>
+
+  <script type="module">
+    import './cookieconsent-master/dist/cookieconsent.umd.js';
+    CookieConsent.run({
+      // root (parent) element where the modal will be appended as a last child
+      root: 'body',
+      // 'opt-in', 'opt-out'
+      mode: 'opt-in',
+      // auto-show the consent modal if consent is not valid
+      autoShow: true,
+      // create a dark overlay and blocks the page scroll until consent is expressed
+      disablePageInteraction: true,
+      // prevent bots from indexing the modal's content.
+      hideFromBots: true,
+      // manage consent revisions 
+      revision: 0,
+      // intercept all script tags with a data-category attribute, and enables them based on the accepted categories
+      manageScriptTags: true,
+      // clear cookies when user rejects a specific category
+      autoClearCookies: true,
+      // delay the generation of the modal's markup until they're about to become visible
+      // useful to improve the TTI score
+      lazyHtmlGeneration: true,
+      // customize the plugin's cookies
+      cookie: {
+        name: 'cc_cookie',
+        domain: window.location.hostname,
+        path: '/',
+        expiresAfterDays: 182,
+        sameSite: 'Lax',
+        useLocalStorage: false
+      },
+      guiOptions: {
+        consentModal: {
+          layout: 'box',
+          position: 'bottom right',
+          flipButtons: false,
+          equalWeightButtons: true
+        },
+        preferencesModal: {
+          layout: 'box',
+          position: 'right',
+          flipButtons: false,
+          equalWeightButtons: true
+        }
+      },
+      // callbacks
+      onFirstConsent: ({
+        cookie
+      }) => {
+        console.log('onFirstConsent fired', cookie);
+      },
+      onConsent: ({
+        cookie
+      }) => {
+        console.log('onConsent fired!', cookie)
+      },
+      onChange: ({
+        changedCategories,
+        changedServices
+      }) => {
+        console.log('onChange fired!', changedCategories, changedServices);
+      },
+      onModalReady: ({
+        modalName
+      }) => {
+        console.log('ready:', modalName);
+      },
+      onModalShow: ({
+        modalName
+      }) => {
+        console.log('visible:', modalName);
+      },
+      onModalHide: ({
+        modalName
+      }) => {
+        console.log('hidden:', modalName);
+      },
+      categories: {
+        necessary: {
+          enabled: true, // this category is enabled by default
+          readOnly: true // this category cannot be disabled
+        },
+        analytics: {
+          readOnly: false,
+          autoClear: {
+            cookies: [{
+                name: /^_ga/, // regex: match all cookies starting with '_ga'
+              },
+              {
+                name: '_gid', // string: exact cookie name
+              }
+            ]
+          },
+          services: {
+            ga: {
+              label: 'Google Analytics',
+              onAccept: () => {},
+              onReject: () => {},
+              cookies: [
+                {
+                  name: /^(_ga|_gid)/
+                }
+              ]
+            },
+            youtube: {
+              label: 'Youtube Embed',
+              onAccept: () => {},
+              onReject: () => {}
+            },
+          }
+        },
+        ads: {}
+      },
+      language: {
+        default: 'en',
+        rtl: 'ar',  // enable RTL for Arabic
+        autoDetect: 'browser', // 'document', 'browser'
+        translations: {
+          en: {
+            consentModal: {
+              title: 'We use cookies',
+              description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+              acceptAllBtn: 'Accept all',
+              acceptNecessaryBtn: 'Reject all',
+              showPreferencesBtn: 'Manage Individual preferences',
+              // closeIconLabel: 'Reject all and close modal',
+              footer: `
+                            <a href="#path-to-impressum.html" target="_blank">Impressum</a>
+                            <a href="#path-to-privacy-policy.html" target="_blank">Privacy Policy</a>
+                        `,
+            },
+            preferencesModal: {
+              title: 'Manage cookie preferences',
+              acceptAllBtn: 'Accept all',
+              acceptNecessaryBtn: 'Reject all',
+              savePreferencesBtn: 'Accept current selection',
+              closeIconLabel: 'Close modal',
+              serviceCounterLabel: 'Service|Services',
+              sections: [{
+                  title: 'Your Privacy Choices',
+                  description: `In this panel you can express some preferences related to the processing of your personal information. You may review and change expressed choices at any time by resurfacing this panel via the provided link. To deny your consent to the specific processing activities described below, switch the toggles to off or use the “Reject all” button and confirm you want to save your choices.`,
+                },
+                {
+                  title: 'Strictly Necessary',
+                  description: 'These cookies are essential for the proper functioning of the website and cannot be disabled.',
+                  //this field will generate a toggle linked to the 'necessary' category
+                  linkedCategory: 'necessary'
+                },
+                {
+                  title: 'Performance and Analytics',
+                  description: 'These cookies collect information about how you use our website. All of the data is anonymized and cannot be used to identify you.',
+                  linkedCategory: 'analytics',
+                  cookieTable: {
+                    caption: 'Cookie table',
+                    headers: {
+                      name: 'Cookie',
+                      domain: 'Domain',
+                      desc: 'Description'
+                    },
+                    body: [{
+                        name: '_ga',
+                        domain: location.hostname,
+                        desc: 'Description 1',
+                      },
+                      {
+                        name: '_gid',
+                        domain: location.hostname,
+                        desc: 'Description 2',
+                      }
+                    ]
+                  }
+                },
+                {
+                  title: 'Targeting and Advertising',
+                  description: 'These cookies are used to make advertising messages more relevant to you and your interests. The intention is to display ads that are relevant and engaging for the individual user and thereby more valuable for publishers and third party advertisers.',
+                  linkedCategory: 'ads',
+                },
+                {
+                  title: 'More information',
+                  description: 'For any queries in relation to my policy on cookies and your choices, please <a href="#contact-page">contact us</a>'
+                }
+              ]
+            }
+          }
+        }
+      }
+    });
+
+  </script>
+  
 </body>
 </html>

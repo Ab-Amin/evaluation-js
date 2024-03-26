@@ -1,0 +1,21 @@
+{
+  "name": "playground-astro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "a11y-dialog": "^8.0.4",
+    "astro": "^4.4.9",
+    "astro-compress": "^2.2.11",
+    "deep-equal": "^2.2.3",
+    "file-saver": "^2.0.5",
+    "sass": "^1.71.1",
+    "shikiji": "0.10.2"
+  }
+}

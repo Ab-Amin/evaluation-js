@@ -12,6 +12,17 @@ a{
 /*=-=-=-=| main |=-=-=-=*/
 body{
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  // position: relative;
+  height: 100vh;
+  width: 100vh;
+  overflow: hidden;
+
+  .random-img{
+    position: absolute;
+    right: 0;
+    bottom:-5px;
+    z-index: -2;
+  }
 
   aside{ 
     background: linear-gradient(170deg, rgba(62,13,148,0.9661399548532731) 47%, rgba(32,40,170,1) 65%);
@@ -28,7 +39,29 @@ body{
     div{
       margin: 20px auto;
     }
+    > div:last-of-type{
+      .cookiePlugin{
+        height: 20px;
+        margin-right: 10px;
+        background-color: transparent;
+        border: 2px solid black;
+        padding: 12px;
+        border-radius: 10px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all .2s ease-in-out;
+        &:hover{
+          scale: 1.05;
+          transition: all .2s ease-in-out;
+          cursor: pointer;
+        }
+      }
+    }
     .light-dark{
+      width: fit-content;
+      height: fit-content;
       i{
         cursor: pointer;
         transition: all .2s ease-in-out;
@@ -39,6 +72,9 @@ body{
       }
     }
   }
+
+
+  
 
   main{
     position: absolute;
@@ -53,7 +89,7 @@ body{
         padding: 20px;
         border-end-end-radius: 35px;
         a{
-          color: rgb(0, 0, 0);
+          color: black;
           padding: 10px 15px;
           font-weight: bold;
           &:hover{
@@ -71,18 +107,22 @@ body{
       width: fit-content;
       background-color: rgba(143, 92, 233, 0.651);
       border-end-end-radius: 20px;
-
+      border-bottom: 1px solid rgb(79, 40, 145);
       a{
         padding: 15px;
         // border-end-end-radius: 20px;
-        border: 1px solid black;
+        border: 1px solid rgb(79, 40, 145);
         border-top: none;
+        border-bottom: none;
+        // border-right: ;
         &:hover{
           background-color: rgba(118, 62, 214, 0.651);
         }
       }
       a:first-child{
+        position: relative;
         border-left: none;
+        border-end-end-radius: 20px;
       }
       a:last-child{
         border-end-end-radius: 20px;
@@ -224,11 +264,40 @@ body{
     }
   }
 
-
 }
 
 
 
+.light-mode{
+  aside{
+    background: linear-gradient(74deg, rgba(212,169,11,0.8980582524271845) 34%, rgba(233,154,29,0.8758465011286681) 80%)
+  }
 
 
+  main{
+    nav{
+      background-color: rgba(238, 206, 91, 0.815);
+    }
+  }
 
+  .nav-II{
+    background-color: rgba(238, 206, 91, 0.897);
+    a{
+      &:hover{
+        background-color: rgba(212, 154, 52, 0.801)
+      }
+    }
+  }
+
+  .bet-window{
+    .onglet{
+      background: linear-gradient(74deg, rgba(212,169,11,0.8980582524271845) 34%, rgba(233,154,29,0.8758465011286681) 80%)
+    }
+    .js-bets{
+      border-left: 2px solid rgba(195,178,20,0.8758465011286681);
+      border-right: 2px solid rgba(212,137,11,0.8623024830699775);
+    }
+  }
+
+
+}
